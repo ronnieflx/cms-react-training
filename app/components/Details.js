@@ -4,20 +4,26 @@ import styles from '@/styles/Home.module.css'
 const Details = (props) => {     
     let date = new Date (props.date)
     let options = { year: 'numeric', month: 'long', day: 'numeric' };
-    // let dateString = formattedDate.getMonth()+"/"+formattedDate.getDate()+"/"+formattedDate.getFullYear()
+    console.log(date)
 
     return (
         <div className={styles.details}>
-            <p><label>Published: </label> {date.toLocaleDateString("en-US", options)}</p>
-            <p><label>Creators: </label> 
-                {props.creators.map((creator, i) => {
-                    return (
-                        <>
-                            {creator.name}{ (i ? ', ' : '') + i }
-                        </>
-                    )
-                })}
-            </p>
+            {date != "Invalid Date" &&
+                <p><label>Published: </label> {date.toLocaleDateString("en-US", options)}</p>
+            }
+
+            {props.creators.length != 0 &&
+                <p><label>Creators: </label> 
+                    {props.creators.map((creator, i) => {
+                        return (
+                            <>
+                                { ( i ? ', ' : '' ) + creator.name }
+                            </>
+                        )
+                    })}
+                </p>
+            }
+
         </div>
     )
 

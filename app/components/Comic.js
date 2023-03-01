@@ -6,19 +6,19 @@ import styles from '@/styles/Home.module.css'
 const Comic = (props) => {       
     return (
         <div className={styles.card}>
-            <div class={styles.imgcont}>
+            <div className={styles.imgcont}>
                 <Image
                     src={props.thumbnail}
                     width={300}
                     height={300}
                     alt={props.title + " - Poster"}
                 />
-                <Button href={props.thumbnail} more_caption="More Info"></Button>
+                <Button href={props.thumbnail} more_caption="More Info" />
             </div>
             <h3>
                 {props.title}
             </h3>
-            <Details date={props.date} creators={props.creators}></Details>
+            <Details date={props.date} creators={props.creators} />
             
         </div>
     )
