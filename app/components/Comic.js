@@ -3,23 +3,27 @@ import Details from 'components/Details';
 import Button from 'components/Button'
 import styles from '@/styles/Home.module.css'
 
-const Comic = (props) => {       
+
+const myLoader = ({ src, width, quality }) => {
+    return `${src}?w=${width}&q=${quality || 75}`
+  }
+const Comic = ({movie}) => {       
     return (
         <div className={styles.card}>
             <div className={styles.imgcont}>
                 <Image
-                    src={props.thumbnail}
+                    loader={myLoader}
+                    src={movie.thumbnail.path+"."+movie.thumbnail.extension}
                     width={300}
                     height={300}
-                    alt={props.title + " - Poster"}
+                    alt={movie.title + " - Poster"}
                 />
-                <Button href={props.thumbnail} more_caption="More Info" />
+                <Button  />
             </div>
             <h3>
-                {props.title}
+                {movie.title}
             </h3>
-            <Details date={props.date} creators={props.creators} />
-            
+            <Details id={movie.id} date={movie.modified} creators={movie.creators.items} issue={movie.issueNumber} />
         </div>
     )
 }

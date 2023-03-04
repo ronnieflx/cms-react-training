@@ -94,6 +94,19 @@
 	max-width: 30ch;
 }
 
+.creators {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	list-style: none;
+}
+
+.creators li:not(:last-child)::after{
+	display: inline-block;
+	white-space: pre;
+	content: ", ";
+}
+
 .center {
 	display: flex;
 	justify-content: center;

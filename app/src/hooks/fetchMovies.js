@@ -12,7 +12,6 @@ const fetchMovies = () => {
     const hash = md5(ts + privateKey + publicKey);
     const apiUrl = "https://gateway.marvel.com/v1/public/comics";
 
-
     useEffect(() => {
         setIsLoading(true);
         const fetchData = async () => {
