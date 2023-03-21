@@ -1,9 +1,9 @@
 import { useContext } from 'react'
-import styles from '../src/styles/Comics.module.css'
+import styles from '../../src/styles/Comics.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBoltLightning } from '@fortawesome/free-solid-svg-icons';
-import { ComicProps} from '../src/types/types'
-import { favoritesContext, favoritesContextType } from '../src/context/favorites'
+import { ComicProps} from '../../src/types/types'
+import { favoritesContext, favoritesContextType } from '../../src/context/favorites'
 
 type buttonProps = {
 	comicData: ComicProps;

@@ -11,7 +11,7 @@ export interface ComicProps {
     creators: {
         items: Creator[]
     },
-    issueNumber: string
+    issueNumber: number
 }
 
 export interface Thumbnail {
@@ -26,7 +26,7 @@ export interface Creator {
 export interface DetailsProps {
     dates: Dates[];
     creators: Creator[];
-    issue: string;
+    issue: number;
 }
 
 export interface Dates {
@@ -34,12 +34,12 @@ export interface Dates {
     type: string
 }
 
-export interface FilterIndex {
+export interface FilterProps {
 	updateQuery: Function;
 	isLoading: boolean;
 }
 
-export interface FilterDetail {
+export interface FilterSelect {
 	updateParams: Function;
 	filterObj: FilterTarget[];
 	filterType: string;
@@ -51,11 +51,9 @@ interface FilterTarget {
 	name: string;
 }
 
-// Pagination
+
 export interface Pager {
 	display: string;
 	prevPage: Function;
 	nextPage: Function;
 }
-
-

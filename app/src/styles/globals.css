@@ -46,11 +46,12 @@
 	--text-sm: 0.875rem;
 	--text-base: 1rem;
 	--text-lg: 1.125rem;
+	--text-xl: 1.25rem;
 	--text-2xl: 25px;
 	--text-3xl: 1.875rem;
 
 	--comics-black: #222;
-	--comics-white: #F8F8F2;
+	--comics-white: #F8F8F2; 
 	--red: #C24868;
 }
 

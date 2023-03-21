@@ -1,19 +1,21 @@
 
-import Image from 'next/image'
+import Image from 'next/legacy/image'
 import Navigation from './Navigation'
-
+import styles from '../src/styles/Header.module.css'
 
 export default function Header() {
 	return (
-		<header >
-			{/* <div >
+		<header className={styles.header}>
+			<div className={styles.logoContainer}>
 				<Image
 					src='/logo.svg'
 					alt='Comic Closet Logo'
-					fill
-					priority
+					layout="responsive"
+					width={106}
+					height={106}
+					loading='eager'
 				/>
-			</div> */}
+			</div>
 
 			<Navigation />
 		</header>

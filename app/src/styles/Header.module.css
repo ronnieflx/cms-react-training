@@ -1,0 +1,24 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+	position: absolute;
+	padding: 8px 15px;
+    z-index: 10;
+    width: 100%;
+	background: transparent linear-gradient(180deg, #000000B3 0%, #00000000 100%) 0% 0% no-repeat padding-box;
+}
+
+.header .logoContainer {
+	width: 75px;
+	height: 75px;
+}
+
+@media (min-width: 64em) {
+	.header {
+		padding: 20px 58px;
+	}
+	.header .logoContainer {
+		width: 106px;
+		height: 106px;
+	}
+}

@@ -3,18 +3,16 @@ import React, { useState, useEffect } from 'react';
 function viewPortSize() {
 	const [isMobile, setIsMobile] = useState(Boolean);
 	useEffect(() => {
-		const mediaQuery = window.matchMedia('(max-width: 639px)');
+		const mediaQuery = window.matchMedia('(max-width: 1023px)');
 
 		function handleViewportChange(event) {
 			const isMobile = event.matches;
-			const body = document.body;
 
 			if (isMobile) {
 				setIsMobile(true)
 			
 			} else {
 				setIsMobile(false)
-				
 			}
 		}
 		

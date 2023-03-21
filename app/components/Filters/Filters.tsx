@@ -1,14 +1,16 @@
 import { useEffect, useState } from 'react';
 import { Select } from './Select'
-import { creators, characters } from './filterProps';
-import { FilterIndex } from '../../src/types/types';
+import { creators, characters } from './filterValues';
+import { FilterProps } from '../../src/types/types';
 import viewPortSize from '../../src/hooks/isMobile';
 import styles from '../../src/styles/Filters.module.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFilter } from '@fortawesome/free-solid-svg-icons'
 
-export const Filters = ({ updateQuery, isLoading }: FilterIndex) => {
+export const Filters = ({ updateQuery, isLoading }: FilterProps) => {
 	const [character, setCharacter] = useState('');
 	const [creator, setCreator] = useState('');
-	
+	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const [isMobile] = viewPortSize();
 	
 	const updateParams = (filterType: string, selectedFilterVal: string) => {
@@ -20,31 +22,53 @@ export const Filters = ({ updateQuery, isLoading }: FilterIndex) => {
 		updateQuery(query);
 	}, [character, creator]);
 
+
+	function toggleFilter(): void {
+		setIsOpen(!isOpen);
+	}
 	return (
 		
-		<div className={styles.filters}>
+		<div className={styles.filtersContainer}>
 			{isMobile ? (
-				<span>
-					Mobile Filters
-				</span>
+				<div className={styles.filtersMobile}>
+					<button onClick={toggleFilter}>
+						Filter <FontAwesomeIcon icon={faFilter} />
+					</button>
+					<div className={`${styles.filterDropdown} ${isOpen ? styles["filterDropdown-open"] : ""}`}>
+						<Select
+							isLoading={isLoading}
+							updateParams={updateParams}
+							filterObj={characters}
+							filterType='character'
+						/>
+						<Select
+							isLoading={isLoading}
+							updateParams={updateParams}
+							filterObj={creators}
+							filterType='creator'
+						/>
+					</div>
+				</div>
 			) : (
-				<span>
-					Desktop Filters
-				</span>
+				<div className={styles.filtersDesktop}>
+					<span>
+						Filter by:
+					</span>
+					
+					<Select
+						isLoading={isLoading}
+						updateParams={updateParams}
+						filterObj={characters}
+						filterType='character'
+					/>
+					<Select
+						isLoading={isLoading}
+						updateParams={updateParams}
+						filterObj={creators}
+						filterType='creator'
+					/>
+				</div>
 			)}
-			
-			<Select
-				isLoading={isLoading}
-				updateParams={updateParams}
-				filterObj={characters}
-				filterType='character'
-			/>
-			<Select
-				isLoading={isLoading}
-				updateParams={updateParams}
-				filterObj={creators}
-				filterType='creator'
-			/>
 		</div>
 	);
 };

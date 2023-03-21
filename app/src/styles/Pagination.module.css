@@ -1,0 +1,25 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-alt);
+    font-size: var(--text-lg);
+	gap: 15px;
+	margin-bottom: 60px;
+}
+
+.pagination button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+	border: none;
+	background-color: var(--comics-black);
+	cursor: pointer;
+}
+
+.pagination button svg {
+	width: 8px;
+}

@@ -1,0 +1,78 @@
+.mobileNav {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 15px;
+	font-family: var(--font-main);
+}
+
+.mobileNav .mobileFavorites {
+	display: flex;
+	gap: 3px;
+	font-size: var(--text-lg);
+}
+.mobileNav .mobileFavorites svg {
+	width: 13px;
+}
+.mobileNav button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 55px;
+	height: 43px;
+	background-color: transparent;
+	border: 2px solid var(--comics-white);
+	border-radius: 5px;
+	cursor: pointer;
+}
+.mobileNav button svg {
+	width: 18px;
+}
+.mobileNav .dropdown {
+	position: absolute;
+	right: 0;
+	top: 0%;
+	width: 320px;
+	display: flex;
+	flex-direction: column;
+	padding: 25px;
+	background-color: var(--comics-black);
+	pointer-events: none;
+	opacity: 0;
+	transition: opacity 0.2s ease-in-out, top 0.3s ease-in-out;
+}
+.mobileNav .dropdown a {
+	font-weight: 700;
+	margin-bottom: 12px;
+}
+.mobileNav .dropdown-open {
+	opacity: 1;
+	top: 100%;
+	pointer-events: all;
+}
+.desktopNav {
+	display: flex;
+	justify-content: center;
+	height: fit-content;
+	padding-top: 30px;
+	font-size: var(--text-lg);
+	font-family: var(--font-main);
+	font-weight: 700;
+	gap: 28px;
+}
+.desktopNav nav {
+	display: flex;
+	gap: 30px;
+}
+
+.desktopNav .desktopFavorites {
+	display: flex;
+	gap: 4px;
+}
+.desktopNav .desktopFavorites svg {
+	width: 14px;
+}
+.desktopNav .desktopFavorites span {
+	font-weight: 400;
+}

@@ -1,31 +1,81 @@
-.filters {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 10px;
-    background: var(--comics-black);
-    width: 100%;
-    grid-row: 1;
-    height: 60px;
-    color: var(--comics-white);
+.filtersContainer {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	background: var(--comics-black);
+	width: 100%;
+	grid-row: 1;
+	height: 60px;
+	color: var(--comics-white);
+	font-family: var(--font-main);
 }
-.filters span {
-    font-size: var(--text-sm);
+.filtersContainer span {
+	font-size: var(--text-sm);
 }
-.filters select {
-    width: 245px;
-    height: 32px;
-    background: unset;
-    border-radius: 2px;
+.filtersContainer select {
+	width: 210px;
+	height: 32px;
+	background: unset;
+	border-radius: 3px;
+	
+	background-color: var(--comics-black);
+	color: var(--comics-white);
+	font-family: var(--font-alt);
+}
+.filtersMobile button {
+	display: flex;
+	flex-direction: row;
+	padding: 8px 9px;
+	background-color: transparent;
+	gap: 4px;
+	border: none;
+	font-size: var(--text-sm);
+	font-weight: 700;
+	font-family: var(--font-main);
+	cursor: pointer;
 }
 
+.filtersMobile button svg {
+	width: 16px;
+}
+.filterDropdown {
+	position: absolute;
+	display: grid;
+	gap: 15px;
+	padding: 20px;
+	width: 250px;
+	background-color: var(--comics-black);
+	z-index: 1;
+	overflow: hidden;
+	opacity: 0;
+	height: 0;
+	transition: height 0.25s ease, opacity 0.15s ease;
+	pointer-events: none;
+}
+.filterDropdown-open {
+	opacity: 1;
+	height: 119px;
+	pointer-events: all;
+}
 @media (min-width: 64em) {
-    .filters {
-        flex-direction: row;
-        align-items: center;
-    }
-    .filters select {
-        width: 245px;
-        height: 32px;
-    }
+	.filtersContainer {
+		padding: 0 20px;
+	}
+	.filtersDesktop {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 3px;
+	}
+	.filtersDesktop > span {
+		font-weight: 600;
+	}
+	.filtersDesktop select {
+		font-size: var(--text-base);
+		text-transform: capitalize;
+		width: 245px;
+		height: 32px;
+		margin: 0 8px;
+		text-indent: 4px;
+	}
 }

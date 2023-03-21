@@ -1,10 +1,10 @@
 import { useContext } from 'react'
 import Image from 'next/image'
-import { favoritesContext, favoritesContextType } from '../src/context/favorites'
-import { ComicProps, Thumbnail } from '../src/types/types'
+import { favoritesContext, favoritesContextType } from '../../src/context/favorites'
+import { ComicProps, Thumbnail } from '../../src/types/types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
-import styles from '../src/styles/Favorites.module.css'
+import styles from '../../src/styles/Favorites.module.css'
 
 type FavoriteItemProp = {
 	key: number;
@@ -16,15 +16,9 @@ type FavoriteItemProp = {
 
 type removeFromFavorites = () => void;
 
-
 export default function FavoritesItem( props: FavoriteItemProp ) {
 	const { id, title, issueNumber, thumbnail } = props
-
 	const context = useContext<favoritesContextType>(favoritesContext)
-
-	const thumbnailSrc = thumbnail && `${thumbnail.path}.${thumbnail.extension}`
-
-	const altDescription = `${title} issue:${issueNumber} cover art`
 
 	function removeFromFavorites(): removeFromFavorites {
 		context.setFavorites(prevFavorites => {
@@ -41,17 +35,17 @@ export default function FavoritesItem( props: FavoriteItemProp ) {
 	}
 
 	return (
-		<div className={styles.slide}>
+		<div className={styles.favoritesItem}>
 			<div className={styles.imgCont}>
 				<Image
-					src={thumbnailSrc}
-					alt={altDescription}
+					src={`${thumbnail.path}.${thumbnail.extension}`}
+					alt={`${title} issue:${issueNumber} - Poster`}
 					className={styles.img}
 					width={50}
 					height={75}
 				/>
 				<button
-					className={styles.removeButton}
+					className={styles.closeButton}
 					onClick={removeFromFavorites}
 				>
 					<FontAwesomeIcon icon={faXmark} />

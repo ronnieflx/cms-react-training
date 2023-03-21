@@ -2,16 +2,19 @@ import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import Head from 'next/head'
 import { useState, useEffect } from 'react'
 import { favoritesContext } from '../context/favorites'
-import Favorites from '../../components/Favorites'
-import mainStyles from '../styles/Home.module.css'
-import Comic from '../../components/Comic'
+import styles from '../styles/Home.module.css'
+import Comic from '../../components/Comics/Comic'
 import fetchComics from '../hooks/fetchComics'
 import { ComicProps, ComicProps as ComicType } from '../types/types';
-import { Filters } from '../../components/Filters/Filters';
 import md5 from 'md5';
-import { Pagination } from '../../components/Pagination';
 import { usePager } from '../hooks/Pager';
 import Header from '../../components/Header'
+import Footer from '../../components/Footer'
+import HeroImage from '../../components/HeroImage'
+import Favorites from '../../components/Favorites/Favorites'
+import IntroTextbox from '../../components/IntroTextbox'
+import { Pagination } from '../../components/Pagination';
+import { Filters } from '../../components/Filters/Filters';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
@@ -42,7 +45,6 @@ export default function Home({ API_URL }: InferGetStaticPropsType<typeof getStat
 		}
 	}, []);
 
-
     //Update Query Function
     const updateQuery = (params: string) => {
 		setCurrentPage(1);
@@ -61,9 +63,7 @@ export default function Home({ API_URL }: InferGetStaticPropsType<typeof getStat
 		setUrl(`${API_URL}&offset=${offset}&${query}`);
 	}, [currentPage, query]);
 
-
-
-    //favorites
+    //Favorites Context
     const contextValue = {
 		favorites,
 		setFavorites
@@ -79,15 +79,16 @@ export default function Home({ API_URL }: InferGetStaticPropsType<typeof getStat
             </Head>
             <favoritesContext.Provider value={contextValue}>
                 <Header />
-                <main className={mainStyles.main}>
-                    
+                <HeroImage />
+                <IntroTextbox />
+                <main className={styles.main}>
                     <Filters
                         isLoading={isLoading}
                         updateQuery={updateQuery}
                     />
                     
-                    <div className={mainStyles.comic_container} >
-                        <div className={mainStyles.comic_grid}>
+                    <div className={styles.comic_container} >
+                        <div className={styles.comic_grid}>
                             { isLoading ? (
                                 <span  className="loading"> Loading... <FontAwesomeIcon icon={faSpinner} style={{width: '14px'}} /> </span>
                             ) : serverError ? (
@@ -100,7 +101,7 @@ export default function Home({ API_URL }: InferGetStaticPropsType<typeof getStat
                                 </>
                             )}
                         </div>
-                        <div>
+                       
                         {!isLoading && (
                             <Pagination
                                 prevPage={prevPage}
@@ -108,16 +109,14 @@ export default function Home({ API_URL }: InferGetStaticPropsType<typeof getStat
                                 display={`${pageDisplay}`}
                             />
                         )}
-                        </div>
                     </div>
 
-                    <div className={mainStyles.favorites_container}>
-                        <div >
-                            <Favorites handleCloseButtonClick={() => null} />
-                        </div>
+                    <div className={styles.favorites_container}>
+                        <Favorites  />
                     </div>
                 </main>
             </favoritesContext.Provider>
+            <Footer />
         </>
     )
 }

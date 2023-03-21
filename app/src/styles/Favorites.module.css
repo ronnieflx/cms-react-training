@@ -1,97 +1,46 @@
-.slide {
-	display: grid;
-	grid-template-columns: 50px 1fr;
-	gap: 10px;
-}
-
-.imgCont {
-	position: relative;
-}
-
-.removeButton {
-	position: absolute;
-	top: 0;
-	left: 0;
-	transform: translate(-50%, -50%);
-	height: 35px;
-	width: 35px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	cursor: pointer;
-	border-radius: 100%;
-	background-color: rgba(248, 248, 242, 0.8);
-	padding: 0;
-	border: 0;
-	margin: 0;
-}
-
-.removeButton svg {
-	font-size: 0.9375rem;
-	color: var(--pink)
-}
-
-.contentSection {
-	place-items: start;
-}
-
-.slideTitle {
-	font-family: var(--font-body);
-	font-size: 0.875rem;
-	font-weight: 700;
-	line-height: 1.14;
-	color: var(--comics-white);
-}
-
-.issueNumber {
-	font-family: var(--font-body);
-	font-size: 0.875rem;
-	font-weight: 100;
-	line-height: 1.14;
-	color: var(--comics-white);
-}
-
-@media (min-width: 64em) {
-	.removeButton {
-		height: 12px;
-		width: 12px;
-	}
-	
-	.removeButton svg {
-		font-size: 0.5rem;
-	}
-
-	.slideTitle {
-		margin-bottom: 5px;
-	}
-}
-
-
 .favoritesContainer {
-	width: 50%;
+	position: relative;
+    height: 100%;
+    display: grid;
+    justify-content: right;
+    font-family: var(--font-main);
+}
+
+.favoritesContainer .showFavorites {
+	display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0 9px;
+    background-color: unset;
+    border: none;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: var(--text-sm);
+	cursor: pointer;
+}
+
+.favoritesContainer .showFavorites svg {
+	width: 10px;
+}
+
+.inner {
+	width: 335px;
+	height: fit-content;
 	position: absolute;
-	top: 0;
+	top: 60px;
 	right: 0;
 	z-index: 1;
 	background-color: var(--comics-black);
 	max-width: 1075px;
 	margin: 0 auto;
-	transform: translateY(-100%);
-
-	transition: transform .5s ease;
-	
+	overflow: hidden;
+	max-height: 0px;
+	transition:  max-height 0.3s ease;
 }
 
-
-.favoritesContainerActive {
-	transform: translateY(0);
-
-}
-
-
-
-.inner {
-	padding: 20px 30px;
+.favoritesContainerActive .inner {
+	opacity: 1;
+	max-height: 1361px;
 }
 
 .favoritesTitle {
@@ -99,15 +48,10 @@
 	color: var(--comics-white);
 	font-weight: 900;
 	font-size: var(--text-2xl);
+	padding: 20px 30px 45px;
 }
 
-.comicGrid {
-	display: grid;
-	place-items: start;
-	gap: 46px;
-}
-
-.closeButton {
+.hideFavorites {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -123,10 +67,71 @@
 	cursor: pointer;
 }
 
-.closeButton svg {
+.hideFavorites svg {
 	color: var(--comics-white);
 	margin-left: 5px;
 	width: 5px;
+	width: 10px;
+}
+
+.favoritesComics { 
+	display: grid;
+	place-items: start;
+	gap: 44px;
+	padding: 0 30px 40px;
+}
+
+.favoritesItem {
+	display: grid;
+	grid-template-columns: 50px 1fr;
+	gap: 9px;
+}
+
+.favoritesItem .imgCont {
+	position: relative;
+}
+
+.favoritesItem .closeButton {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	top: 0;
+	left: 0;
+	transform: translate(-50%, -50%);
+	height: 35px;
+	width: 35px;
+	cursor: pointer;
+	border-radius: 100%;
+	background-color: rgba(248, 248, 242, 0.8);
+	padding: 0;
+	border: 0;
+	margin: 0;
+}
+
+.favoritesItem .closeButton svg {
+	width: 10px;
+	color: var(--red);
+}
+
+.contentSection {
+	place-items: start;
+}
+
+.slideTitle {
+	font-family: var(--font-alt);
+	font-size: 0.875rem;
+	font-weight: 700;
+	line-height: 1.14;
+	color: var(--comics-white);
+}
+
+.issueNumber {
+	font-family: var(--font-alt);
+	font-size: 0.875rem;
+	font-weight: 100;
+	line-height: 1.14;
+	color: var(--comics-white);
 }
 
 @media (min-width: 64em) {
@@ -135,22 +140,36 @@
 		bottom: unset;
 		left: unset;
 		transform: unset;
+		justify-content: unset;
+		width: 100%;
 	}
 
 	.inner {
-		padding-top: 30px;
-		padding-bottom: 40px;
+		position: relative;
+		width: 100%;
+		top: unset;
+		height: fit-content;
+		max-height: unset;
 	}
 
 	.favoritesTitle {
-		margin-bottom: 36px;
+		padding: 30px 30px 35px;
 	}
 
-	.comicGrid {
-		gap: 26px;
+	.favoritesComics { 
+		gap: 25px;
 	}
 
-	.closeButton {
-		display: none;
+	.favoritesItem .closeButton {
+		height: 12px;
+		width: 12px;
+	}
+	
+	.favoritesItem .closeButton svg {
+		width: 6px;
+	}
+
+	.slideTitle {
+		margin-bottom: 5px;
 	}
 }

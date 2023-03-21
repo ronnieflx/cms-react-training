@@ -1,7 +1,7 @@
 import { useState, SyntheticEvent } from 'react';
-import { FilterDetail } from '../../src/types/types';
+import { FilterSelect } from '../../src/types/types';
 
-export const Select = ({ updateParams, filterObj, filterType, isLoading }: FilterDetail) => {
+export const Select = ({ updateParams, filterObj, filterType, isLoading }: FilterSelect) => {
 	const [selected, setSelected] = useState('');
 
 	const eventHandler = (e: SyntheticEvent<HTMLSelectElement>) => {
