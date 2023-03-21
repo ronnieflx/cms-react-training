@@ -21,8 +21,8 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 export const getStaticProps: GetStaticProps = async() => {
 	const ts: number = Date.now();
-	const publicKey: string = "b5d9ffe549808a2ecf1308220437df56";
-    const privateKey: string = "255629cb1927101c31702fd307aea39dcde49eb5";
+	const publicKey: string = process.env.PUBLIC_KEY;
+    const privateKey: string = process.env.PRIVATE_KEY;
 	const hash: string = md5(ts + privateKey + publicKey);
 	const requiredParameters = `ts=${ts}&apikey=${publicKey}&hash=${hash}`
 	const limit = 15;
