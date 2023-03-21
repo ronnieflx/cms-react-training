@@ -1,6 +1,4 @@
-import styles from '@/styles/Home.module.css'
-
-import { library } from '@fortawesome/fontawesome-svg-core';
+import styles from '../src/styles/Home.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBoltLightning } from '@fortawesome/free-solid-svg-icons';
 

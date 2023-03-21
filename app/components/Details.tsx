@@ -1,9 +1,18 @@
-import { Fragment } from "react"
-import styles from '@/styles/Home.module.css'
+import styles from '../src/styles/Home.module.css'
 
-const Details = ({id, date, creators, issue}) => {     
-    let formattedDate = new Date (date)
-    let options = { year: 'numeric', month: 'long', day: 'numeric' };
+interface Props {
+	issue: number;
+	date: string | number | Date;
+	creators: creator[];
+}
+
+interface creator {
+	name: string;
+}
+
+const Details = ({ issue, date, creators }: Props) => {     
+    const formattedDate: Date = new Date(date);
+    const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
 
     return (
         <div className={styles.details}>
