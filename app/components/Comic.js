@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from 'next/legacy/image'
 import Details from 'components/Details';
 import Button from 'components/Button'
 import styles from '@/styles/Home.module.css'
@@ -6,7 +6,7 @@ import styles from '@/styles/Home.module.css'
 const Comic = (props) => {       
     return (
         <div className={styles.card}>
-            <div class={styles.imgcont}>
+            <div className={styles.imgcont}>
                 <Image
                     src={props.thumbnail}
                     width={300}
@@ -18,7 +18,7 @@ const Comic = (props) => {
             <h3>
                 {props.title}
             </h3>
-            <Details date={props.date} creators={props.creators}></Details>
+            <Details id={props.id} date={props.date} creators={props.creators}></Details>
             
         </div>
     )
