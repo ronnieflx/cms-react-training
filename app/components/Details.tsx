@@ -17,16 +17,16 @@ const Details = ({ issue, date, creators }: Props) => {
     return (
         <div className={styles.details}>
             {formattedDate != "Invalid Date" &&
-                <p><label>Published: </label> {formattedDate.toLocaleDateString("en-US", options)}</p>
+                <p data-testid="detailDate">Published: {formattedDate.toLocaleDateString("en-US", options)}</p>
             }
-            <p><label>Issue: </label> {issue}</p>
+            <p data-testid="detailIssue">Issue: {issue}</p>
             {creators.length != 0 &&
                 <>
                     <h5>Creators: </h5>
-                    <ul className={styles.creators}>
+                    <ul className={styles.creators} >
                         {creators.map((creator, i) => {
                             return (
-                                < li key={creator.name}>
+                                <li key={creator.name} data-testid="detailCreator">
                                     { creator.name }
                                 </li>
                             )

@@ -44,7 +44,7 @@ const fetchComics = () => {
                 const results: Comic[] = await fetch(
                     `${apiUrl}?apikey=${publicKey}&ts=${ts}&hash=${hash}`
                 ).then(res => res.json()).then(res => res.data).then(res => res.results);
-
+                        console.log(results)
                 setData(results);
                 setIsLoading(false);
             } catch (error) {

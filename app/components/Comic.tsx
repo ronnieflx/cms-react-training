@@ -12,10 +12,11 @@ const Comic = ({comic}) => {
                     width={300}
                     height={300}
                     alt={comic.title + " - Poster"}
+                    data-testid="thumb-path"
                 />
                 <Button  />
             </div>
-            <h3>
+            <h3 data-testid="title">
                 {comic.title}
             </h3>
             <Details id={comic.id} date={comic.modified} creators={comic.creators.items} issue={comic.issueNumber} />
