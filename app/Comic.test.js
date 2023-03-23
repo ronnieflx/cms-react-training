@@ -22,31 +22,22 @@ const comicProps = {
 	}
 };
 
-
 const detailProps = {
 	creators: [
-            {
-                name : "Jim Nausedas"
-            }
+		{
+			name : "Jim Nausedas"
+		}
     ],
-    
 	issue: 0,
 	date: '2019-11-07T08:46:15-0500',
 };
+
 describe('<Comic>', () => {
 	it('Title', ()=>{
 		const { getByTestId } = render(<Comic {...comicProps} />);
 
-		expect(getByTestId('title').textContent).toBe('Marvel Previews (2017)');
-        
+		expect(getByTestId('title').textContent).toBe('Marvel Previews (2017)'); 
 	});
-
-    // it('Image alt & url', ()=>{
-	// 	const { getByTestId } = render(<Comic {...comicProps} />);
-		
-    //     expect(getByTestId('thumb-path').textContent).toBe('http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available');
-	// 	expect(img).toHaveAttribute('alt', 'Marvel Previews (2017)')
-	// });
 });
 
 describe('<Detail>', () => {
