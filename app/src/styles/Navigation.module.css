@@ -28,6 +28,7 @@
 }
 .mobileNav button svg {
 	width: 18px;
+	color: var(--comics-white);
 }
 .mobileNav .dropdown {
 	position: absolute;
@@ -41,6 +42,7 @@
 	pointer-events: none;
 	opacity: 0;
 	transition: opacity 0.2s ease-in-out, top 0.3s ease-in-out;
+	color: var(--comics-white);
 }
 .mobileNav .dropdown a {
 	font-weight: 700;
@@ -64,14 +66,17 @@
 .desktopNav nav {
 	display: flex;
 	gap: 30px;
+	color: var(--comics-white);
 }
 
 .desktopNav .desktopFavorites {
 	display: flex;
 	gap: 4px;
+	color: var(--comics-white);
 }
 .desktopNav .desktopFavorites svg {
 	width: 14px;
+	color: var(--comics-white);
 }
 .desktopNav .desktopFavorites span {
 	font-weight: 400;

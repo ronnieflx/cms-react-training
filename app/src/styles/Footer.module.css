@@ -35,9 +35,11 @@
 
 .footer nav ul li a {
 	text-decoration: underline;
+	color: var(--comics-white);
 }
 .footer .copyright {
 	text-align: center;
+	color: var(--comics-white);
 }
 
 @media (min-width: 64em) {

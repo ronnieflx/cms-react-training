@@ -22,4 +22,5 @@
 
 .pagination button svg {
 	width: 8px;
+	color: var(--comics-white);
 }

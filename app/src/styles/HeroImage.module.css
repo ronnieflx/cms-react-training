@@ -36,6 +36,7 @@
 	font-size: 1.6875rem;
 	text-shadow: 2px 2px 0px #000000;
 	font-weight: 800;
+	color: var(--comics-white);
 }
 
 @media (min-width: 40em) {

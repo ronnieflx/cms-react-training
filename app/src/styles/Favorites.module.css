@@ -17,10 +17,12 @@
     font-weight: 700;
     font-size: var(--text-sm);
 	cursor: pointer;
+	color: var(--comics-white);
 }
 
 .favoritesContainer .showFavorites svg {
 	width: 10px;
+	color: var(--comics-white);
 }
 
 .inner {

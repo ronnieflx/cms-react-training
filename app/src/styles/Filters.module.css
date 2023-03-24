@@ -17,7 +17,7 @@
 	height: 32px;
 	background: unset;
 	border-radius: 3px;
-	
+	cursor: pointer;
 	background-color: var(--comics-black);
 	color: var(--comics-white);
 	font-family: var(--font-alt);
